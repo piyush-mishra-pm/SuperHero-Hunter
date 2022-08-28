@@ -5,7 +5,7 @@ export default class Superhero {
         this.description = description;
         this.imageSrcPath = imageSrcPath;
         this.imageSrcExtension = imageSrcExtension;
-        this.urlLinks = new Array(urlLinks);
+        this.urlLinks = urlLinks;
         this.resourceURI = resourceURI;
     }
 

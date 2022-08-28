@@ -20,13 +20,14 @@
         <section id="section-results">
             <h1>Search Results</h1>
             <p id="search-message"></p>
-            <ul id="ul--search-results"></ul>
+            <ul id="ul--search-results" class="favorites-listener"></ul>
             <template id="template-li--search-result">
-                <li class="li--search-result" data-uuid="12345">
+                <li class="li--search-result" data-id="12345">
                     <p class="li--name"></p>
                     <p class="li--id"></p>
                     <p class="li--description"></p>
                     <img src="" class="li--img" />
+                    <button class="li--btn-favorites">Add To Favorites</button>
                 </li>
             </template>
         </section>
