@@ -6,7 +6,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SuperHero Hunter</title>
         <link rel="stylesheet" href="styles/shared.css" />
-        <script src="scripts/driver.js" defer></script>
+        <script type="module" src="scripts/driver.js" defer></script>
     </head>
-    <body></body>
+    <body>
+        <header><h1>Header</h1></header>
+        <section id="section-carousel">
+            <h1>Super Hero Images Carousel goes here</h1>
+        </section>
+        <section id="section-searchbar">
+            <input type="text" placeholder="Hunt your heroes" id="txt-search" />
+            <input type="button" value="Search" id="btn-search" />
+        </section>
+        <section id="section-results">
+            <h1>Search Results</h1>
+            <p id="search-message"></p>
+            <ul id="ul--search-results"></ul>
+            <template id="template-li--search-result">
+                <li class="li--search-result" data-uuid="12345">
+                    <p class="li--name"></p>
+                    <p class="li--id"></p>
+                    <p class="li--description"></p>
+                    <img src="" class="li--img" />
+                </li>
+            </template>
+        </section>
+        <footer><h3>Footer</h3></footer>
+    </body>
 </html>
