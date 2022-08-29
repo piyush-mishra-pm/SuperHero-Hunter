@@ -15,6 +15,32 @@ function jsonToSuperHeroArray(marvelJson) {
     return SuperheroArray;
 }
 
+function jsonToCharacterInfo(marvelCharacterJson) {
+    console.log(marvelCharacterJson);
+    return {
+        status: marvelCharacterJson.status,
+        code: marvelCharacterJson.code,
+        id: marvelCharacterJson.data.results[0].id,
+        description: marvelCharacterJson.data.results[0].description,
+        name: marvelCharacterJson.data.results[0].name,
+        thumbnail: marvelCharacterJson.data.results[0].thumbnail,
+        urls: marvelCharacterJson.data.results[0].urls,
+        resourceURI: marvelCharacterJson.data.results[0].resourceURI,
+    };
+}
+
+function transformCharInfoToSuperhero(charInfo) {
+    return new Superhero(
+        charInfo.id,
+        charInfo.name,
+        charInfo.description,
+        charInfo.thumbnail.path,
+        charInfo.thumbnail.extension,
+        charInfo.urls,
+        charInfo.resourceURI
+    );
+}
+
 function transformAndAddHeroToSuperHeroList(heroJson, array) {
     array.push(
         new Superhero(
@@ -29,4 +55,4 @@ function transformAndAddHeroToSuperHeroList(heroJson, array) {
     );
 }
 
-export { jsonToSuperHeroArray };
+export { jsonToSuperHeroArray, jsonToCharacterInfo, transformCharInfoToSuperhero };
