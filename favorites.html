@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Favorite Superheroes</title>
+        <link rel="stylesheet" href="./styles/shared.css" />
         <script type="module" src="./scripts/driverFavorites.js" defer></script>
     </head>
     <body>
@@ -14,7 +15,7 @@
             <a href="./favorites.html">Favourites</a>
         </header>
         <section id="section--favorites-list">
-            <ul id="ul--favorites-list" class="favorites-listener"></ul>
+            <ul id="ul--favorites-list" class="favorites-listener open-hero-info-listener"></ul>
             <template id="template--favorites-list">
                 <li class="li--favorite-result" data-id="12345">
                     <p class="li--name"></p>

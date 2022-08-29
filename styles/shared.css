@@ -1,0 +1,4 @@
+.li--search-result:hover,
+.li--favorite-result:hover {
+    background-color: red;
+}

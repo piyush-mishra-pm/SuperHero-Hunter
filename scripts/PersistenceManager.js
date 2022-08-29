@@ -29,9 +29,9 @@ function deserialiseSuperheroList(savedJSON) {
     return favSuperHeroList;
 }
 
-function setKeySuperHeroIdToOpen(superheroId) {
+function setKeySuperHeroIdToOpen(superheroId, favSuperHeroList) {
     VALUE_ClickedSuperheroIdToOpen = superheroId;
-    save();
+    save(favSuperHeroList);
 }
 
 function getKeySuperHeroIdToOpen() {

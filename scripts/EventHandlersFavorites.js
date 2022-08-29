@@ -16,6 +16,19 @@ function onFavoritesButtonPressed(e) {
     }
 }
 
+// Open Superhero Info page: (Only 1 listener exists).
+const heroInfoListeners = document.querySelector(".open-hero-info-listener");
+heroInfoListeners.addEventListener("click", onHeroInfoListenerClicked);
+
+function onHeroInfoListenerClicked(e) {
+    e.preventDefault();
+    if (e.target.matches(".li--favorite-result")) {
+        const heroIdToOpen = e.target.closest(".li--favorite-result").dataset.id;
+        PersistenceManager.setKeySuperHeroIdToOpen(heroIdToOpen, favSuperheroList);
+        window.location.href = "../superHero.html";
+    }
+}
+
 let favSuperheroList;
 function init(favList) {
     favSuperheroList = favList;

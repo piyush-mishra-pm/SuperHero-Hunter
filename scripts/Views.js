@@ -53,5 +53,26 @@ function factoryMarkUp(results, ul, template, liId, IMG_TYPE) {
         ul.appendChild(cloned);
     });
 }
+const IMG_TYPE_CHAR_INFO_PAGE = "standard_fantastic";
+function generateSuperheroCharacterInfoPage(charInfo) {
+    console.log(charInfo);
+    document.getElementById(
+        "info-message"
+    ).innerText = `[Response status: ${charInfo.status} ; code: ${charInfo.code}]`;
+    console.log(document.querySelector(".hero-info-div"));
+    document.querySelector(".hero-info-div").dataset.id = charInfo.id;
 
-export { init, generateSearchResultView, generateFavoritesView };
+    document.querySelector(".info--name").innerText = charInfo.name;
+    document.querySelector(".info--id").innerText = charInfo.id;
+
+    document.querySelector(".info--description").innerText = charInfo.description;
+    document.querySelector(
+        ".info--img"
+    ).src = `${charInfo.thumbnail.path}/${IMG_TYPE_CHAR_INFO_PAGE}.${charInfo.thumbnail.extension}`;
+
+    // Change Fav button text to remove/add depending upon already fav or not.
+    const favBtn = document.querySelector(".info--btn-favorites");
+    favBtn.innerHTML = favSuperheroList.isFavorite(charInfo.id) ? "Remove from Favorites" : "Add to Favorites";
+}
+
+export { init, generateSearchResultView, generateFavoritesView, generateSuperheroCharacterInfoPage };
