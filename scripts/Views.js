@@ -39,7 +39,6 @@ function init(favList) {
 function factoryMarkUp(results, ul, template, liId, IMG_TYPE) {
     results.forEach((hero) => {
         const cloned = template.content.cloneNode(true);
-        console.log(liId, cloned);
         cloned.querySelector(liId).dataset.id = hero.id;
         cloned.querySelector(".li--name").innerText = hero.name;
         cloned.querySelector(".li--id").innerText = hero.id;
@@ -55,11 +54,9 @@ function factoryMarkUp(results, ul, template, liId, IMG_TYPE) {
 }
 const IMG_TYPE_CHAR_INFO_PAGE = "standard_fantastic";
 function generateSuperheroCharacterInfoPage(charInfo) {
-    console.log(charInfo);
     document.getElementById(
         "info-message"
     ).innerText = `[Response status: ${charInfo.status} ; code: ${charInfo.code}]`;
-    console.log(document.querySelector(".hero-info-div"));
     document.querySelector(".hero-info-div").dataset.id = charInfo.id;
 
     document.querySelector(".info--name").innerText = charInfo.name;

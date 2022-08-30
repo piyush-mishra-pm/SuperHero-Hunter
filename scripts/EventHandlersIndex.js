@@ -14,7 +14,6 @@ let searchedHeroResults;
 if (btnSearch) btnSearch.addEventListener("click", onSearchHeroClicked);
 
 async function onSearchHeroClicked(e) {
-    e.preventDefault();
     const searchSuperheroText = inputTextSearch.value;
 
     if (!searchSuperheroText) {
@@ -40,8 +39,8 @@ const favoritesListener = document.querySelector(".favorites-listener");
 favoritesListener.addEventListener("click", onFavoritesButtonPressed);
 
 function onFavoritesButtonPressed(e) {
-    e.preventDefault();
     if (e.target.matches(".li--btn-favorites")) {
+        e.stopPropagation();
         const idToCheckFavorite = e.target.closest(".li--search-result").dataset.id;
         const isAFavorite = favSuperheroList.isFavorite(idToCheckFavorite);
         if (!isAFavorite) {
@@ -65,7 +64,8 @@ heroInfoListeners.addEventListener("click", onHeroInfoListenerClicked);
 
 function onHeroInfoListenerClicked(e) {
     e.preventDefault();
-    if (e.target.matches(".li--search-result")) {
+    if (e.target.closest(".li--search-result") && !e.target.matches(".li--btn-favorites")) {
+        e.stopPropagation();
         const heroIdToOpen = e.target.closest(".li--search-result").dataset.id;
         PersistenceManager.setKeySuperHeroIdToOpen(heroIdToOpen, favSuperheroList);
         window.location.href = "../superHero.html";
