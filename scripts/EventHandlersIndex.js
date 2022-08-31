@@ -12,6 +12,12 @@ let searchedHeroResults;
 
 // Possible that on webpages other than index.html, there is no search bar.
 if (btnSearch) btnSearch.addEventListener("click", onSearchHeroClicked);
+if (inputTextSearch) inputTextSearch.addEventListener("keyup", onInputTextSearchEnterKeyUp);
+
+async function onInputTextSearchEnterKeyUp(e) {
+    if (e.key !== "Enter") return;
+    await onSearchHeroClicked(e);
+}
 
 async function onSearchHeroClicked(e) {
     const searchSuperheroText = inputTextSearch.value;

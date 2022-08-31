@@ -6,5 +6,7 @@ CSS, HTML, JS.
 
 ## Todos:
 
--   [ ] Enter button press on search page, to trigger search.
+-   [x] Enter button press on search page, to trigger search.
+-   [ ] Marvel Attribution in footer.
 -   [x] style.
+-   [ ] Host.
