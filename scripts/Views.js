@@ -53,7 +53,13 @@ function factoryMarkUp(results, ul, template, liId, IMG_TYPE) {
     });
 }
 const IMG_TYPE_CHAR_INFO_PAGE = "standard_fantastic";
-function generateSuperheroCharacterInfoPage(charInfo) {
+function generateSuperheroCharacterInfoPage(charInfo, comicInfo, seriesInfo) {
+    generateCharInfoSection(charInfo);
+    generateComicInfoSection(comicInfo);
+    generateSeriesInfoSection(seriesInfo);
+}
+
+function generateCharInfoSection(charInfo) {
     document.getElementById(
         "info-message"
     ).innerText = `[Response status: ${charInfo.status} ; code: ${charInfo.code}]`;
@@ -70,6 +76,34 @@ function generateSuperheroCharacterInfoPage(charInfo) {
     // Change Fav button text to remove/add depending upon already fav or not.
     const favBtn = document.querySelector(".info--btn-favorites");
     favBtn.innerHTML = favSuperheroList.isFavorite(charInfo.id) ? "Remove from Favorites" : "Add to Favorites";
+}
+
+function generateComicInfoSection(comicsInfo) {
+    const ulComics = document.getElementById("ul--comics-info");
+    const templateComics = document.getElementById("template--li-comics-series");
+    const IMG_TYPE_IN_COMICS = "standard_fantastic";
+    comicsOrSeriesCommonMarkUpCode(comicsInfo, ulComics, templateComics, IMG_TYPE_IN_COMICS);
+}
+
+function generateSeriesInfoSection(seriesInfo) {
+    const ulSeries = document.getElementById("ul--series-info");
+    const templateSeries = document.getElementById("template--li-comics-series");
+    const IMG_TYPE_IN_SERIES = "standard_fantastic";
+    comicsOrSeriesCommonMarkUpCode(seriesInfo, ulSeries, templateSeries, IMG_TYPE_IN_SERIES);
+}
+
+function comicsOrSeriesCommonMarkUpCode(sectionInfo, ul, templateComic, IMG_TYPE) {
+    if (!sectionInfo.items.length) {
+        ul.parentNode.querySelector(".message").innerText = "No items found.";
+    } else {
+        sectionInfo.items.forEach((comic) => {
+            const cloned = templateComic.content.cloneNode(true);
+            cloned.querySelector(".name").innerText = comic.name;
+            cloned.querySelector(".description").innerText = comic.description;
+            cloned.querySelector(".picture").src = `${comic.thumbnail.path}/${IMG_TYPE}.${comic.thumbnail.extension}`;
+            ul.appendChild(cloned);
+        });
+    }
 }
 
 export { init, generateSearchResultView, generateFavoritesView, generateSuperheroCharacterInfoPage };

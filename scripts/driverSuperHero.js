@@ -12,12 +12,19 @@ console.log(clickedHeroID, typeof clickedHeroID);
 init();
 
 async function init() {
-    const apiResponse = await APIhelper.findCharacterInfo(clickedHeroID);
-    const charInfo = await Transformer.jsonToCharacterInfo(apiResponse);
-    console.log(charInfo);
+    // Call APIs for results: Asynchronously:
+    const charInfoAPIFetchResults = await Promise.all([
+        APIhelper.findCharacterInfo(clickedHeroID),
+        APIhelper.fetchComicInfoForCharacter(clickedHeroID),
+        APIhelper.fetchSeriesInfoForCharacter(clickedHeroID),
+    ]);
+
+    const charInfo = Transformer.jsonToCharacterInfo(charInfoAPIFetchResults[0]);
+    const comicInfo = Transformer.jsonToComicsOrSeriesInfo(charInfoAPIFetchResults[1]);
+    const seriesInfo = Transformer.jsonToComicsOrSeriesInfo(charInfoAPIFetchResults[2]);
 
     Views.init(savedFavoritesList);
-    Views.generateSuperheroCharacterInfoPage(charInfo);
+    Views.generateSuperheroCharacterInfoPage(charInfo, comicInfo, seriesInfo);
 
     EventHandlersSuperHero.init(charInfo, savedFavoritesList);
 }

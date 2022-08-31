@@ -24,6 +24,26 @@
                 <p class="info--description"></p>
                 <img src="" class="info--img" />
                 <button class="info--btn-favorites">Add To Favorites</button>
+                <div class="comics-info">
+                    <h3>Comics</h3>
+                    <p class="message"></p>
+                    <ul id="ul--comics-info">
+                    </ul>
+                </div>
+                <div class="series-info">
+                    <h3>Series</h3>
+                    <p class="message"></p>
+                    <ul id="ul--series-info">
+                    </ul>
+                </div>
+                <!--Common template for Comics and Series list-->
+                <template id="template--li-comics-series">
+                    <li class>
+                        <p class="name"></p>
+                        <p class="description"></p>
+                        <img src="" class="picture">
+                    </li>                        
+                </template>
             </div>
         </section>
         <footer>

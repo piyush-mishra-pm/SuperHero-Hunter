@@ -8,6 +8,7 @@ CSS, HTML, JS.
 
 -   [x] Enter button press on search page, to trigger search.
 -   [x] Marvel Attribution in footer.
--   [ ] Detailed Hero Info page.
+-   [x] Detailed Hero Info page.
 -   [x] style.
+-   [ ] Organise files and folders.
 -   [ ] Host.

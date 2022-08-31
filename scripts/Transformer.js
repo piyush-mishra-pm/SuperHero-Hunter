@@ -15,18 +15,26 @@ function jsonToSuperHeroArray(marvelJson) {
     return SuperheroArray;
 }
 
-function jsonToCharacterInfo(marvelCharacterJson) {
-    console.log(marvelCharacterJson);
+function jsonToCharacterInfo(charInfoJson) {
     return {
-        status: marvelCharacterJson.status,
-        code: marvelCharacterJson.code,
-        id: marvelCharacterJson.data.results[0].id,
-        description: marvelCharacterJson.data.results[0].description,
-        name: marvelCharacterJson.data.results[0].name,
-        thumbnail: marvelCharacterJson.data.results[0].thumbnail,
-        urls: marvelCharacterJson.data.results[0].urls,
-        resourceURI: marvelCharacterJson.data.results[0].resourceURI,
+        status: charInfoJson.status,
+        code: charInfoJson.code,
+        id: charInfoJson.data.results[0].id,
+        description: charInfoJson.data.results[0].description,
+        name: charInfoJson.data.results[0].name,
+        thumbnail: charInfoJson.data.results[0].thumbnail,
+        urls: charInfoJson.data.results[0].urls,
+        resourceURI: charInfoJson.data.results[0].resourceURI,
     };
+}
+
+// Can also be used for series (not just comics):
+function jsonToComicsOrSeriesInfo(comicInfoJson) {
+    const comicsInfo = { status: comicInfoJson.status, code: comicInfoJson.code, items: [] };
+    comicInfoJson.data.results.forEach((comic) =>
+        comicsInfo.items.push({ name: comic.title, description: comic.description, thumbnail: comic.thumbnail })
+    );
+    return comicsInfo;
 }
 
 function transformCharInfoToSuperhero(charInfo) {
@@ -55,4 +63,4 @@ function transformAndAddHeroToSuperHeroList(heroJson, array) {
     );
 }
 
-export { jsonToSuperHeroArray, jsonToCharacterInfo, transformCharInfoToSuperhero };
+export { jsonToSuperHeroArray, jsonToCharacterInfo, transformCharInfoToSuperhero, jsonToComicsOrSeriesInfo };
