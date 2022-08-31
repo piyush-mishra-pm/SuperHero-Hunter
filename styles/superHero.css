@@ -1,0 +1,36 @@
+body {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1rem 1fr 1rem;
+    grid-template-areas:
+        "header header        header"
+        "..      hero-info-div ..     "
+        "..      comics-info   ..     "
+        "..      series-info   ..     "
+        "footer footer        footer";
+}
+
+@media (min-width: 700px) {
+    body {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1rem 1fr 1fr 1rem;
+        grid-template-areas:
+            "header header        header    header"
+            "..      hero-info-div hero-info-div .."
+            "..      comics-info   series-info .."
+            "footer footer        footer    footer";
+    }
+}
+
+.hero-info-div {
+    grid-area: hero-info-div;
+}
+.comics-info {
+    grid-area: comics-info;
+    --local--post-fade-in--bgcolor: var(--color--bg--200);
+}
+.series-info {
+    grid-area: series-info;
+    --local--post-fade-in--bgcolor: var(--color--bg--200);
+}

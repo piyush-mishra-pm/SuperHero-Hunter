@@ -6,48 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SuperHero Details</title>
         <link rel="stylesheet" href="./styles/shared.css" />
+        <link rel="stylesheet" href="./styles/superHero.css" />
         <script type="module" src="./scripts/driverSuperHero.js" defer></script>
     </head>
     <body>
         <header>
-            <a class="logo" href="./index.html">Marvel Superhero Hunter</div>
+            <a class="logo l1-heading" href="./index.html">Marvel Superhero Hunter</div>
             <div>
-                <a href="./index.html">Search</a>
-                <a href="./favorites.html">Favourites</a>
+                <a href="./index.html" class="l2-heading">Search</a>
+                <a href="./favorites.html" class="l2-heading">Favourites</a>
             </div>
         </header>
-        <section id="section--superhero-info">
-            <p id="info-message"></p>
-            <div class="hero-info-div" data-id="12345">
-                <p class="info--name"></p>
-                <p class="info--id"></p>
-                <p class="info--description"></p>
-                <img src="" class="info--img" />
-                <button class="info--btn-favorites">Add To Favorites</button>
-                <div class="comics-info">
-                    <h3>Comics</h3>
-                    <p class="message"></p>
-                    <ul id="ul--comics-info">
-                    </ul>
-                </div>
-                <div class="series-info">
-                    <h3>Series</h3>
-                    <p class="message"></p>
-                    <ul id="ul--series-info">
-                    </ul>
-                </div>
-                <!--Common template for Comics and Series list-->
-                <template id="template--li-comics-series">
-                    <li class>
-                        <p class="name"></p>
-                        <p class="description"></p>
-                        <img src="" class="picture">
-                    </li>                        
-                </template>
-            </div>
-        </section>
+        <div class="hero-info-div" data-id="12345">
+            <p id="info-message" class="l3-text"></p>
+            <img src="" class="info--img" />
+            <p class="info--name l1-text"></p>
+            <p class="info--id l2-text hidden"></p>
+            <p class="info--description l2-text"></p>
+            <button class="info--btn-favorites">Add To Favorites</button>
+        </div>
+        <div class="comics-info bg--color--border-radius--shadow fx-fade-in">
+            <h3>Comics</h3>
+            <p class="message"></p>
+            <ul id="ul--comics-info" class="grid-view">
+            </ul>
+        </div>
+        <div class="series-info bg--color--border-radius--shadow fx-fade-in">
+            <h3>Series</h3>
+            <p class="message l3-text"></p>
+            <ul id="ul--series-info" class="grid-view">
+            </ul>
+        </div>
         <footer>
             <a href="http://marvel.com">Data provided by Marvel. © 2022 MARVEL</a>
         </footer>
+        <!--Common template for Comics and Series list-->
+        <template id="template--li-comics-series">
+            <li class="bg--color--border-radius--shadow fx-fade-in fx-magnify no-overflow">
+                <img src="" class="picture">
+                <p class="name l1-text"></p>
+                <p class="description l2-text"></p>
+            </li>                        
+        </template>
     </body>
 </html>
