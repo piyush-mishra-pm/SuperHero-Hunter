@@ -6,10 +6,8 @@ const favoritesListener = document.querySelector(".favorites-listener");
 favoritesListener.addEventListener("click", onFavoritesButtonPressed);
 
 function onFavoritesButtonPressed(e) {
-    console.log("outFav", e.target);
     if (e.target.matches(".li--btn-favorites")) {
         e.stopPropagation();
-        console.log("inFav", e.target);
         const idRemoveFromFavorites = e.target.closest(".li--favorite-result").dataset.id;
         // Only possible to remove from favorites, as favorites page only shows favorite superheroes.
         favSuperheroList.removeHero(idRemoveFromFavorites);
@@ -23,10 +21,8 @@ const heroInfoListeners = document.querySelector(".open-hero-info-listener");
 heroInfoListeners.addEventListener("click", onHeroInfoListenerClicked);
 
 function onHeroInfoListenerClicked(e) {
-    console.log("outInfo", e.target);
     if (e.target.closest(".li--favorite-result") && !e.target.matches(".li--btn-favorites")) {
         e.stopPropagation();
-        console.log("inInfo", e.target);
         const heroIdToOpen = e.target.closest(".li--favorite-result").dataset.id;
         PersistenceManager.setKeySuperHeroIdToOpen(heroIdToOpen, favSuperheroList);
         window.location.href = "../superHero.html";
