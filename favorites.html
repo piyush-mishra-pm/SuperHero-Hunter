@@ -6,31 +6,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Favorite Superheroes</title>
         <link rel="stylesheet" href="./styles/shared.css" />
-        <link rel="stylesheet" href="./styles/favorites.css" />
         <script type="module" src="./scripts/driverFavorites.js" defer></script>
     </head>
     <body>
         <header>
-            <a class="logo" href="./index.html">Marvel Superhero Hunter</div>
+            <a class="logo l1-heading fx-fade-in" href="./index.html">Marvel Superhero Hunter</div>
             <div>
-                <a href="./index.html">Search</a>
-                <a href="./favorites.html">Favourites</a>
+                <a href="./index.html" class="l2-heading fx-fade-in">Search</a> |
+                <a href="./favorites.html" class="l2-heading fx-fade-in">Favourites</a>
             </div>
         </header>
         <section id="section--favorites-list">
-            <ul id="ul--favorites-list" class="favorites-listener open-hero-info-listener"></ul>
+            <ul id="ul--favorites-list" class="favorites-listener open-hero-info-listener grid-view"></ul>
             <template id="template--favorites-list">
-                <li class="li--favorite-result" data-id="12345">
-                    <p class="li--name"></p>
-                    <p class="li--id"></p>
-                    <p class="li--description"></p>
+                <li class="li--favorite-result bg--color--border-radius--shadow fx-fade-in fx-magnify no-overflow" data-id="12345">
                     <img src="" class="li--img" />
+                    <p class="li--name l1-text"></p>
+                    <p class="li--id hidden"></p>
+                    <p class="li--description l2-text"></p>
                     <button class="li--btn-favorites">Add To Favorites</button>
                 </li>
             </template>
         </section>
         <footer>
-            <a href="http://marvel.com">Data provided by Marvel. © 2022 MARVEL</a>
+            <a href="http://marvel.com" class="l2-text">Data provided by Marvel. © 2022 MARVEL</a>
         </footer>
     </body>
 </html>
