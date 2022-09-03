@@ -59,6 +59,7 @@ function generateSuperheroCharacterInfoPage(charInfo, comicInfo, seriesInfo) {
     generateSeriesInfoSection(seriesInfo);
 }
 
+// Superhero info page.
 function generateCharInfoSection(charInfo) {
     document.getElementById(
         "info-message"

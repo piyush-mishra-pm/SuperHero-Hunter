@@ -3,6 +3,11 @@ import * as Transformer from "./Transformer.js";
 import * as Views from "./Views.js";
 import * as PersistenceManager from "./PersistenceManager.js";
 
+let favSuperheroList;
+function init(favList) {
+    favSuperheroList = favList;
+}
+
 // Search Handler:
 const btnSearch = document.getElementById("btn-search");
 const inputTextSearch = document.getElementById("txt-search");
@@ -76,11 +81,6 @@ function onHeroInfoListenerClicked(e) {
         PersistenceManager.setKeySuperHeroIdToOpen(heroIdToOpen, favSuperheroList);
         window.location.href = "../superHero.html";
     }
-}
-
-let favSuperheroList;
-function init(favList) {
-    favSuperheroList = favList;
 }
 
 export { init };

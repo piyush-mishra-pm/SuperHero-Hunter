@@ -148,3 +148,12 @@ footer {
 .no-overflow {
     overflow: hidden;
 }
+
+#section-searchbar {
+    --local--pre-fade-in--bgcolor: var(--color--accent--100);
+    --local--post-fade-in--bgcolor: var(--color--bg--400: );
+}
+
+.center {
+    text-align: center;
+}
