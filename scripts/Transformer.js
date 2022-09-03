@@ -1,5 +1,4 @@
 import Superhero from "./Superhero.js";
-import SuperheroList from "./SuperheroList.js";
 
 let SuperheroArray;
 
