@@ -1,3 +1,9 @@
+/*
+    All the API helper functions, calling Marvel API and returning JSON response.
+    This JSON response is then transformed by Transformer.js, and
+    then View.js shows the output.
+*/
+
 import * as MarvelKeys from "./Marvel.keys.js";
 
 async function searchCharacter(searchString) {

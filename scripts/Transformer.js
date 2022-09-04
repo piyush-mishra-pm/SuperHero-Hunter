@@ -1,7 +1,11 @@
+/*
+    All the transformers, to convert API JSON responses to form usable by Views.
+*/
+
 import Superhero from "./Superhero.js";
 
 let SuperheroArray;
-
+// Search Superhero page:
 function jsonToSuperHeroArray(marvelJson) {
     // Status should be OK:
     if (marvelJson.status !== "Ok") return null;
@@ -14,6 +18,7 @@ function jsonToSuperHeroArray(marvelJson) {
     return SuperheroArray;
 }
 
+// SuperHeroInfo page: Can also be used for series (not just comics):
 function jsonToCharacterInfo(charInfoJson) {
     return {
         status: charInfoJson.status,
@@ -27,7 +32,7 @@ function jsonToCharacterInfo(charInfoJson) {
     };
 }
 
-// Can also be used for series (not just comics):
+// SuperHeroInfo page: For Comics and series:
 function jsonToComicsOrSeriesInfo(comicInfoJson) {
     const comicsInfo = { status: comicInfoJson.status, code: comicInfoJson.code, items: [] };
     comicInfoJson.data.results.forEach((comic) =>

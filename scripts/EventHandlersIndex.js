@@ -7,8 +7,9 @@ let favSuperheroList;
 function init(favList) {
     favSuperheroList = favList;
 }
+export { init };
 
-// Search Handler:
+// --------- Search Handlers: ---------------
 const btnSearch = document.getElementById("btn-search");
 const inputTextSearch = document.getElementById("txt-search");
 const searchStatusMessage = document.getElementById("search-message");
@@ -19,14 +20,16 @@ let searchedHeroResults;
 if (btnSearch) btnSearch.addEventListener("click", onSearchHeroClicked);
 if (inputTextSearch) inputTextSearch.addEventListener("keyup", onInputTextSearchEnterKeyUp);
 
+// When enter key pressed, then can initiate search.
 async function onInputTextSearchEnterKeyUp(e) {
     if (e.key !== "Enter") return;
     await onSearchHeroClicked(e);
 }
 
+// When Earch btn pressed, then can initiate search.
 async function onSearchHeroClicked(e) {
     const searchSuperheroText = inputTextSearch.value;
-
+    // If there was any text entered in search bar?
     if (!searchSuperheroText) {
         searchStatusMessage.innerText = "Type a marvel superhero name to search";
         return;
@@ -34,6 +37,7 @@ async function onSearchHeroClicked(e) {
     btnSearch.disabled = true;
     searchStatusMessage.innerText = "Finding...";
 
+    // Fetching API entered in search bar, transforming json response, and refreshing the view to show response.
     const jsonResponse = await APIhelper.searchCharacter(searchSuperheroText);
     searchedHeroResults = Transformer.jsonToSuperHeroArray(jsonResponse);
     if (searchedHeroResults.length == 0)
@@ -45,7 +49,10 @@ async function onSearchHeroClicked(e) {
     btnSearch.disabled = false;
 }
 
-// Favorites Event Handler: (Only one element (ul) has the listener)
+// --------- Favorites Event Handler: ---------------
+// (Only one element (ul) has the listener)
+// On fav btn clicked, if already a fav, make unfav. If unfav, then make fav.
+// Then Save the changes and refresh view.
 const favoritesListener = document.querySelector(".favorites-listener");
 favoritesListener.addEventListener("click", onFavoritesButtonPressed);
 
@@ -69,7 +76,10 @@ function onFavoritesButtonPressed(e) {
     }
 }
 
-// Open Superhero Info page: (Only 1 listener exists).
+// --------- Open Superhero Info page: ---------------
+// (Only one element (ul) has the listener).
+// Save heroID clicked, then go to superHero page, which wil use that saved heroId
+// to populate hero Data.
 const heroInfoListeners = document.querySelector(".open-hero-info-listener");
 heroInfoListeners.addEventListener("click", onHeroInfoListenerClicked);
 
@@ -82,5 +92,3 @@ function onHeroInfoListenerClicked(e) {
         window.location.href = "../superHero.html";
     }
 }
-
-export { init };

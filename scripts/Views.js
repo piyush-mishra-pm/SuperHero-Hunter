@@ -1,3 +1,10 @@
+/**
+    All View related functions, for the Search, Favorites and SuperHero page.
+    Uses transformed data from Transformer.js, or list of superheroes, to populate
+    template list items into ul list results.
+ */
+
+// Search Page:
 const ulSearchResults = document.getElementById("ul--search-results");
 const templateSearchResults = document.getElementById("template-li--search-result");
 const IMG_TYPE_IN_SEARCH_RESULTS = "standard_fantastic";
@@ -52,6 +59,8 @@ function factoryMarkUp(results, ul, template, liId, IMG_TYPE) {
         ul.appendChild(cloned);
     });
 }
+
+// Superhero info page.
 const IMG_TYPE_CHAR_INFO_PAGE = "standard_fantastic";
 function generateSuperheroCharacterInfoPage(charInfo, comicInfo, seriesInfo) {
     generateCharInfoSection(charInfo);
@@ -59,7 +68,6 @@ function generateSuperheroCharacterInfoPage(charInfo, comicInfo, seriesInfo) {
     generateSeriesInfoSection(seriesInfo);
 }
 
-// Superhero info page.
 function generateCharInfoSection(charInfo) {
     document.getElementById(
         "info-message"

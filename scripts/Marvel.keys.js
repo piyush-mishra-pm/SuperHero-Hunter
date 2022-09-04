@@ -1,3 +1,7 @@
+/*
+Used by API Helper file to make authenticated requests to Marvel Servers.
+*/
+
 //TS:
 const TS = "1661635057940";
 

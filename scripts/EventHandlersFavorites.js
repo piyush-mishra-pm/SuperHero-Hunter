@@ -1,6 +1,11 @@
 import * as Views from "./Views.js";
 import * as PersistenceManager from "./PersistenceManager.js";
 
+let favSuperheroList;
+function init(favList) {
+    favSuperheroList = favList;
+}
+
 // Favorites Event Handler: (Only one element (ul) has the listener)
 const favoritesListener = document.querySelector(".favorites-listener");
 favoritesListener.addEventListener("click", onFavoritesButtonPressed);
@@ -27,11 +32,6 @@ function onHeroInfoListenerClicked(e) {
         PersistenceManager.setKeySuperHeroIdToOpen(heroIdToOpen, favSuperheroList);
         window.location.href = "../superHero.html";
     }
-}
-
-let favSuperheroList;
-function init(favList) {
-    favSuperheroList = favList;
 }
 
 export { init };

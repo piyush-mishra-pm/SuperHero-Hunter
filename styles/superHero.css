@@ -1,3 +1,7 @@
+/*Only used for SuperHero info page. Not used on Favorites or Search page.*/
+
+/*Responsive mobile first view, where single column layout by default, 
+but on wider screens, 2 column layout.*/
 body {
     display: grid;
     gap: 1rem;
@@ -9,7 +13,7 @@ body {
         "..      series-info   ..     "
         "footer footer        footer";
 }
-
+/*On wider screens, 2 column layout.*/
 @media (min-width: 700px) {
     body {
         display: grid;
@@ -23,6 +27,7 @@ body {
     }
 }
 
+/*Associating grid areas with sections.*/
 .hero-info-div {
     grid-area: hero-info-div;
 }
